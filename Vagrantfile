@@ -9,4 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.network :forwarded_port, guest: 9000, host: 9000
 	config.vm.network :forwarded_port, guest: 27017, host: 27017
 	config.vm.provision "shell", path: "provision.sh"
+	config.vm.provider :virtualbox do |vb|
+		vb.memory = 2048
+		vb.cpus = 2
+	end
 end
